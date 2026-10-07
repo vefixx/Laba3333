@@ -262,4 +262,99 @@ public class Solutions
             attempts++;
         }
     }
+
+    public int FindLast(int[] arr, int x)
+    {
+        var arrLength = arr.Length;
+        for (var i = arrLength - 1; i > 0; i--)
+        {
+            if (arr[i] == x)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public int[] Add(int[] arr, int x, int pos)
+    {
+        var arrLength = arr.Length;
+        var newArr = new int[arrLength + 1];
+
+        for (var i = 0; i < arrLength; i++)
+        {
+            if (i < pos)
+            {
+                newArr[i] = arr[i];
+            }
+            else
+            {
+                newArr[i + 1] = arr[i];
+            }
+        }
+
+        newArr[pos] = x;
+
+        return newArr;
+    }
+
+    public void Reverse(int[] arr)
+    {
+        var arrLength = arr.Length;
+        for (var i = 0; i < arrLength / 2; i++)
+        {
+            var tempEl = arr[i];
+
+            arr[i] = arr[arrLength - 1 - i];
+            arr[arrLength - 1 - i] = tempEl;
+        }
+    }
+
+    public int[] Concat(int[] arr1, int[] arr2)
+    {
+        var newArr = new int[arr1.Length + arr2.Length];
+
+        for (var i = 0; i < newArr.Length; i++)
+        {
+            if (i <= arr1.Length - 1)
+            {
+                newArr[i] = arr1[i];
+            }
+            else
+            {
+                newArr[i] = arr2[i - arr1.Length];
+            }
+        }
+
+        return newArr;
+    }
+
+    public int[] DeleteNegative(int[] arr)
+    {
+        var negativeCount = 0;
+
+        foreach (var item in arr)
+        {
+            if (item < 0)
+            {
+                negativeCount++;
+            }
+        }
+
+        var newArr = new int[arr.Length - negativeCount];
+        var newIndex = 0;
+
+        for (var i = 0; i < arr.Length; i++)
+        {
+            if (i >= 0)
+            {
+                newArr[newIndex] = i;
+                newIndex++;
+            }
+        }
+
+
+        return newArr;
+    }
 }
