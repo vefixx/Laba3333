@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿
+using System.Text;
 
 namespace Laba3;
 
@@ -266,7 +267,7 @@ public class Solutions
     public int FindLast(int[] arr, int x)
     {
         var arrLength = arr.Length;
-        for (var i = arrLength - 1; i > 0; i--)
+        for (var i = arrLength - 1; i >= 0; i--)
         {
             if (arr[i] == x)
             {
@@ -347,9 +348,9 @@ public class Solutions
 
         for (var i = 0; i < arr.Length; i++)
         {
-            if (i >= 0)
+            if (arr[i] >= 0)
             {
-                newArr[newIndex] = i;
+                newArr[newIndex] = arr[i];
                 newIndex++;
             }
         }
